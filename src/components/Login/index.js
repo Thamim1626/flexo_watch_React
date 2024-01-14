@@ -22,10 +22,7 @@ class Login extends Component {
     showPassword: false,
     onUsername: '',
     onPassword: '',
-    formObject: {
-      username: '',
-      password: '',
-    },
+
     isError: false,
     errorMsg: '',
   }
@@ -72,7 +69,6 @@ class Login extends Component {
       showPassword,
       onUsername,
       onPassword,
-      formObject,
       errorMsg,
       isError,
     } = this.state
