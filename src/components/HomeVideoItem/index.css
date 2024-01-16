@@ -1,0 +1,8 @@
+.video-item-card {
+  min-width: 200px;
+  max-width: 400px;
+}
+
+.video-item-card-image {
+  width: 100%;
+}

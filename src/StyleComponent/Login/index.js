@@ -11,7 +11,7 @@ export const LoginMain = styled.div`
 
 export const LoginForm = styled.form`
   width: 90%;
-  max-width: 480px;
+  max-width: 350px;
   font-family: sans-serif;
   display: flex;
   flex-direction: column;
@@ -36,7 +36,7 @@ export const LoginInputItems = styled.div`
   display: flex;
   flex-direction: column;
   width: 80%;
-  max-width: 250px;
+  max-width: 300px;
   margin-top: 20px;
 `
 export const LoginLabel = styled.label`
@@ -52,12 +52,13 @@ export const LoginInput = styled.input`
   border: 1px solid grey;
   height: 28px;
   padding: 6px;
+  width: 100%;
   border-radius: 4px;
 `
 export const LoginCheckSection = styled.div`
   display: flex;
   align-items: center;
-  margin-top: 6px;
+  margin-top: 8px;
 `
 export const LoginCheckLabel = styled.label`
   font-size: 14px;
@@ -84,5 +85,5 @@ export const ErrorMsg = styled.p`
   color: red;
   font-size: 12px;
   align-self: center;
-  margin-top: 12px;
+  margin-top: 16px;
 `

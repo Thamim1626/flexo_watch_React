@@ -22,7 +22,6 @@ class Login extends Component {
     showPassword: false,
     onUsername: '',
     onPassword: '',
-
     isError: false,
     errorMsg: '',
   }

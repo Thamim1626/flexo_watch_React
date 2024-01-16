@@ -1,0 +1,17 @@
+.banner-logo {
+  width: 200px;
+}
+
+.banner-des {
+  width: 300px;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.banner-button {
+  outline: none;
+  border: 2px solid #181818;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-top: 20px;
+}

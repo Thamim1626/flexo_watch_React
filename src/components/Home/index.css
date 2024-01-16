@@ -1,0 +1,38 @@
+.tabItem-container {
+  width: 250px;
+  display: none;
+  flex-direction: column;
+  list-style: none;
+}
+
+.body-content-container {
+  flex-grow: 1;
+}
+
+@media (min-width: 768px) {
+  .tabItem-container {
+    display: flex;
+  }
+}
+
+.nav-contact-heading {
+  font-size: 24px;
+}
+
+.contact-social-media {
+  display: flex;
+  align-items: center;
+  width: 160px;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.social-image {
+  width: 40px;
+}
+
+.contact-des {
+  font-family: sans-serif;
+  margin-top: 20px;
+  width: 200px;
+}

@@ -1,13 +1,21 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
+import {FaFire} from 'react-icons/fa'
+
 import NavLeft from '../NavLeft'
 import HomeVideoItem from '../HomeVideoItem'
 import Header from '../Header'
-import {Banner, SearchContainer} from '../Banner'
+import GameItem from '../GameItem'
 import LanguageContext from '../../Context'
-import {BodyMain, BodyContent, VideoContainer} from './style'
-
+import {
+  BodyMain,
+  BodyContent,
+  VideoContainer,
+  TrendHeader,
+  TrendHeaderHeading,
+  GameLists,
+} from './style'
 import './index.css'
 
 const apiConstrinst = {
@@ -16,15 +24,15 @@ const apiConstrinst = {
   failure: 'FAILURE',
 }
 
-class Home extends Component {
-  state = {videoList: [], apiStatus: apiConstrinst.initial}
+class Game extends Component {
+  state = {videoList: [], apiStatus: apiConstrinst.initial, isDark: false}
 
   componentDidMount() {
     this.fetchHomeVideosApis()
   }
 
   fetchHomeVideosApis = async () => {
-    const url = `https://apis.ccbp.in/videos/all?search=${''}`
+    const url = `https://apis.ccbp.in/videos/gaming`
     const jwtToken = Cookies.get('jwt_token')
     const options = {
       method: 'GET',
@@ -35,16 +43,11 @@ class Home extends Component {
     const response = await fetch(url, options)
     const data = await response.json()
     const videoList = data.videos
-
     const videoListCaseChange = videoList.map(eachItem => ({
       id: eachItem.id,
-      profileImageUrl: eachItem.channel.profile_image_url,
-      publishedAt: eachItem.published_at,
       thumbnailUrl: eachItem.thumbnail_url,
       title: eachItem.title,
       viewCount: eachItem.view_count,
-
-      name: eachItem.channel.name,
     }))
     if (response.ok) {
       this.setState({
@@ -60,7 +63,7 @@ class Home extends Component {
     <LanguageContext.Consumer>
       {value => {
         const {isDark} = value
-        return <Loader type="ThreeDots" isDark={isDark} color="green" />
+        return <Loader type="ThreeDots" color="green" />
       }}
     </LanguageContext.Consumer>
   )
@@ -70,13 +73,13 @@ class Home extends Component {
       {value => {
         const {isDark} = value
         const {videoList} = this.state
-        return videoList.map(eachItem => (
-          <HomeVideoItem
-            eachItem={eachItem}
-            key={eachItem.id}
-            isDark={isDark}
-          />
-        ))
+        return (
+          <GameLists>
+            {videoList.map(eachItem => (
+              <GameItem eachItem={eachItem} key={eachItem.id} isDark={isDark} />
+            ))}
+          </GameLists>
+        )
       }}
     </LanguageContext.Consumer>
   )
@@ -108,10 +111,15 @@ class Home extends Component {
               <Header />
               <BodyMain isDark={isDark}>
                 <NavLeft />
+
                 <BodyContent>
-                  <Banner />
-                  <SearchContainer />
-                  <VideoContainer>{this.renderWithApiSwitch()}</VideoContainer>
+                  <TrendHeader isDark={isDark}>
+                    <FaFire />
+                    <TrendHeaderHeading isDark={isDark}>
+                      GAMING
+                    </TrendHeaderHeading>
+                  </TrendHeader>
+                  {this.renderWithApiSwitch()}
                 </BodyContent>
               </BodyMain>
             </>
@@ -122,4 +130,4 @@ class Home extends Component {
   }
 }
 
-export default Home
+export default Game
