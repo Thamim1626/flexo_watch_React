@@ -1,9 +1,12 @@
 import styled from 'styled-components'
 
 export const GameItems = styled.div`
-  width: 90%;
+  width: 45%;
   max-width: 500px;
   margin-bottom: 20px;
+  @media (min-width: 576px) {
+    width: 30%;
+  }
   @media (min-width: 768px) {
     width: 45%;
   }

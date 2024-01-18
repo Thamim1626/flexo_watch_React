@@ -15,6 +15,8 @@ export const BodyContent = styled.div`
   flex-grow: 1;
   height: 100vh;
   overflow-y: scroll;
+  padding-top: 12px;
+  border-radius: 12px;
 `
 // search container style
 

@@ -23,6 +23,7 @@ export const TrendItemText = styled.div`
   padding: 8px;
   display: flex;
   flex-direction: column;
+  width: 90%;
 `
 
 export const TrendItemTitle = styled.h2`

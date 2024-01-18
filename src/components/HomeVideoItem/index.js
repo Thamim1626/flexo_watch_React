@@ -32,7 +32,7 @@ const HomeVideoItem = props => {
         const {isDark} = value
         return (
           <VideoItemContainer>
-            <Link to={`/${id}`}>
+            <Link to={`/video/${id}`}>
               {' '}
               <HomeItemImage src={thumbnailUrl} alt="title" />{' '}
             </Link>

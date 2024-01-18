@@ -7,12 +7,13 @@ import Trend from './components/Trend'
 import Game from './components/Game'
 import ProductFile from './ProductFile'
 import LogoutPopup from './components/LogoutPopup'
+import VideoItem from './components/VideoItem'
 
 import './App.css'
 
 // Replace your code here
 class App extends Component {
-  state = {isDark: true, activeTab: 'home', isBannerDisplay: true}
+  state = {isDark: false, activeTab: 'home', isBannerDisplay: true}
 
   changeTheme = () => {
     this.setState(prevState => ({isDark: !prevState.isDark}))
@@ -42,10 +43,9 @@ class App extends Component {
         <Switch>
           <Route path="/login" component={Login} />
           <ProductFile exact path="/" component={Home} />
-          <ProductFile exact path="/:id" component={Home} />
           <ProductFile exact path="/trending" component={Trend} />
           <ProductFile exact path="/game" component={Game} />
-          <ProductFile exact path="/saved" component={Home} />
+          <ProductFile exact path="/video/:id" component={VideoItem} />
           <Route component={LogoutPopup} />
         </Switch>
       </LanguageContext.Provider>

@@ -45,7 +45,6 @@ export const TrendHeaderHeading = styled.h1`
 export const GameLists = styled.div`
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
